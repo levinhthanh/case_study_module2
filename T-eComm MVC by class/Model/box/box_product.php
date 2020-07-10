@@ -1,5 +1,30 @@
 <?php
 
+// Nhận yêu cầu thêm sản phẩm vào giỏ hàng:
+$_SESSION["product_code_-1"] = "";
+
+if (isset($_SESSION['product_code']) && isset($_POST['control']) && $_POST['control'] === 'add_to_box') {
+    $product_code = $_SESSION['product_code'];
+    $product_count = $_SESSION['product_count'];
+    $check = false;
+    for ($i = 0; isset($_SESSION["product_code_$i"]); $i++) {
+        if($_SESSION["product_code_$i"] === $product_code){
+            $count_prt = $_SESSION["product_count_$i"];
+            if(!isset($check_add)){
+                $count_prt++;
+                $check_add = 1;
+            }
+            $_SESSION["product_count_$i"] = $count_prt;
+            $check = true;
+        }
+    }
+    $j = $i - 1;
+
+    if ($product_code !== $_SESSION["product_code_$j"] && $check === false) {
+        $_SESSION["product_code_$i"] = $product_code;
+        $_SESSION["product_count_$i"] = $product_count;
+    }
+}
 
 // Hiển thị trang giỏ hàng:
 if (isset($_GET['sub'])) {
@@ -80,20 +105,7 @@ if(!isset($_SESSION["product_code_0"])){
     $box_products_table = "";
 }
 
-// Nhận yêu cầu thêm sản phẩm vào giỏ hàng:
-$_SESSION["product_code_-1"] = "";
-if (isset($_SESSION['product_code'])) {
-    $product_code = $_SESSION['product_code'];
-    $product_count = $_SESSION['product_count'];
-    for ($i = 0; isset($_SESSION["product_code_$i"]); $i++) {
-    }
-    $j = $i - 1;
 
-    if ($product_code !== $_SESSION["product_code_$j"]) {
-        $_SESSION["product_code_$i"] = $product_code;
-        $_SESSION["product_count_$i"] = $product_count;
-    }
-}
 
 
 

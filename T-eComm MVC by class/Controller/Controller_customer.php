@@ -19,9 +19,15 @@ if (isset($_GET['control'])) {
                 break;
             }
         case 'show_box': {
-                include('Model/box/box_product.php');
-                include('View/box/box_product.php');
-                break;
+                if (isset($_SESSION['account']) && isset($_SESSION['password'])) {
+                    include('Model/box/box_product.php');
+                    include('View/box/box_product.php');
+                    break;
+                } else {
+                    $error_login = "";
+                    include('View/login_page.php');
+                    break;
+                }
             }
         case 'new_product_list': {
                 include('Model/get_product_data.php');
@@ -87,21 +93,15 @@ if (isset($_POST['control'])) {
                 break;
             }
         case "add_to_box": {
-                if (isset($_SESSION['account']) && isset($_SESSION['password'])) {
-                    $product_code = $_POST['product_code'];
-                    $_SESSION['product_code'] = $product_code;
-                    $_SESSION['product_count'] = 1;
-                    $label_empty_display = 'none';
-                    $btn_buy_display = 'block';
-                    include('Model/box/box_product.php');
-                    include('Model/get_product_data.php');
-                    include('View/home_page.php');
-                    break;
-                } else {
-                    $error_login = "";
-                    include('View/login_page.php');
-                    break;
-                }
+                $product_code = $_POST['product_code'];
+                $_SESSION['product_code'] = $product_code;
+                $_SESSION['product_count'] = 1;
+                $label_empty_display = 'none';
+                $btn_buy_display = 'block';
+                include('Model/box/box_product.php');
+                include('Model/get_product_data.php');
+                include('View/home_page.php');
+                break;
             }
         case "require_add_comment": {
                 include('Controller/Control_product.php');

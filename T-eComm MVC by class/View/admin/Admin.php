@@ -7,6 +7,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="../../css/fontawesome/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/admin.css">
 
 </head>
@@ -22,7 +23,7 @@
             <br>
             <div class="welcome">
                 <label id="welcome_admin">Welcome</label><br>
-                <label id="name_admin">Lê Vĩnh Thành</label>
+                <label id="name_admin">ADMIN - Lê Vĩnh Thành</label>
             </div>
             <div class="general">
                 <label id="general_lable">GENERAL</label>
@@ -33,9 +34,9 @@
                         <label id="lable_home">Home</label>
                         <i class="fas fa-angle-down"></i>
                         <div class="dropdown-content">
-                            <a id="a_select" href="">Danh sách nhân viên</a><br>
-                            <a id="a_select" href="">Danh sách sản phẩm</a><br>
-                            <a id="a_select" href="">Danh sách khách hàng</a><br>
+                            <a id="a_select" href="index.php?router=admin&control=show_employee_list">Danh sách nhân viên</a>
+                            <a id="a_select" href="index.php?router=admin&control=show_product_list">Danh sách sản phẩm</a>
+                            <a id="a_select" href="index.php?router=admin&control=show_customer_list">Danh sách khách hàng</a>
                         </div>
                     </div>
                 </div>
@@ -47,16 +48,16 @@
                         <i class="fas fa-angle-down"></i>
                         <div class="dropdown-content">
                             <label id="lable_select">Quản lý nhân viên</label><br>
-                            <a id="a_select" href="index.php?router=admin&control=add_employee">Thêm nhân viên</a><br>
-                            <a id="a_select" href="">Xóa nhân viên</a><br>
-                            <a id="a_select" href="">Chỉnh sửa nhân viên</a><br>
+                            <a id="a_select" href="index.php?router=admin&control=add_employee">Thêm nhân viên</a>
+                            <a id="a_select" href="">Xóa nhân viên</a>
+                            <a id="a_select" href="">Chỉnh sửa nhân viên</a>
                             <label id="lable_select">Quản lý sản phẩm</label><br>
-                            <a id="a_select" href="index.php?router=admin&control=add_product">Thêm sản phẩm</a><br>
-                            <a id="a_select" href="">Xóa sản phẩm</a><br>
-                            <a id="a_select" href="">Chỉnh sửa sản phẩm</a><br>
+                            <a id="a_select" href="index.php?router=admin&control=add_product">Thêm sản phẩm</a>
+                            <a id="a_select" href="">Xóa sản phẩm</a>
+                            <a id="a_select" href="">Chỉnh sửa sản phẩm</a>
                             <label id="lable_select">Quản lý tài khoản</label><br>
-                            <a id="a_select" href="">Xóa tài khoản</a><br>
-                            <a id="a_select" href="">Chỉnh sửa tài khoản</a><br>
+                            <a id="a_select" href="">Xóa tài khoản</a>
+                            <a id="a_select" href="">Chỉnh sửa tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -65,8 +66,122 @@
         <div class="container_right">
             <div class="header">
                 <i id="icon_bars" class="fas fa-bars"></i>
+                <div class="log_out">
+                    <a href="index.php?router=admin&control=logout">
+                        <i id="logout" class="fas fa-sign-out-alt"></i>
+                    </a>
+                    <a href="index.php?router=admin&control=logout" id="label_logout">Logout</a>
+                </div>
             </div>
+            <!-- *
+            *
+            * -->
+            <!------------------------- NỘI DUNG TRANG ADMIN --------------------------- -------------------------- -->
+            <!-- *
+            *
+            * -->
             <div class="show_content">
+
+                <!-- DANH SÁCH NHÂN VIÊN -->
+                <div class="list_employee" style="display: <?= $display_list_employee ?>;">
+                    <label id="label_manager_employee">Danh sách nhân viên</label><br>
+                    <div class="tools_employee">
+                        <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
+                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>|
+                        <a id="a_manager_employee" href="index.php?router=admin&control=edit_employee">Edit</a>|
+                        <a id="a_manager_employee" href="index.php?router=admin&control=delete_employee">Delete</a>
+                    </div>
+                    <table id="table_list_employee">
+                        <tr>
+                            <th id="th_list_employee">Mã nhân viên</th>
+                            <th id="th_list_employee">Tên</th>
+                            <th id="th_list_employee">Ngày sinh</th>
+                            <th id="th_list_employee">Địa chỉ</th>
+                            <th id="th_list_employee">Số điện thoại</th>
+                            <th id="th_list_employee">Email</th>
+                            <th id="th_list_employee">Chức vụ</th>
+                            <th id="th_list_employee">Lương</th>
+                            <th id="th_list_employee">Ngày gia nhập</th>
+                            <th id="th_list_employee">Tài khoản</th>
+                            <th id="th_list_employee">Sửa/Xóa</th>
+                        </tr>
+                        <?= $table_list_employee ?>
+
+                    </table>
+                </div>
+
+                <!-- DANH SÁCH SẢN PHẨM -->
+                <div class="list_product" style="display: <?= $display_list_product ?>;">
+                    <label id="label_manager_product">Danh sách sản phẩm</label><br>
+                    <div class="tools_product">
+                        <a id="a_manager_product" href="index.php?router=admin">Home</a>|
+                        <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>|
+                        <a id="a_manager_product" href="">Edit</a>|
+                        <a id="a_manager_product" href="">Delete</a>
+                    </div>
+                    <table id="table_list_product">
+                        <tr>
+                            <th id="th_list_product">Mã sản phẩm</th>
+                            <th id="th_list_product">Ảnh</th>
+                            <th id="th_list_product">Tên sản phẩm</th>
+                            <th id="th_list_product">Giá nhập</th>
+                            <th id="th_list_product">Giá bán</th>
+                            <th id="th_list_product">Trạng thái</th>
+                            <th id="th_list_product">Hãng</th>
+                            <th id="th_list_product">Nhà kho</th>
+                            <th id="th_list_product">Số lượng</th>
+                            <th id="th_list_product">Ngày nhập kho</th>
+                            <th id="th_list_product">Sửa/Xóa</th>
+                        </tr>
+
+                        <?= $table_list_product ?>
+
+                    </table>
+                </div>
+
+                <!-- DANH SÁCH KHÁCH HÀNG -->
+                <div class="list_product" style="display: <?= $display_list_customer ?>;">
+                    <label id="label_manager_customer">Danh sách khách hàng</label><br>
+                    <div class="tools_customer">
+                        <a id="a_manager_customer" href="index.php?router=admin">Home</a>|
+                        <a id="a_manager_customer" href="">Edit</a>|
+                        <a id="a_manager_customer" href="">Delete</a>
+                    </div>
+                    <table id="table_list_customer">
+                        <tr>
+                            <th id="th_list_customer">Mã khách hàng</th>
+                            <th id="th_list_customer">Tên khách hàng</th>
+                            <th id="th_list_customer">Địa chỉ</th>
+                            <th id="th_list_customer">Ngày sinh</th>
+                            <th id="th_list_customer">Số điện thoại</th>
+                            <th id="th_list_customer">Email</th>
+                            <th id="th_list_customer">Account</th>
+                            <th id="th_list_customer">Ngày đăng ký</th>
+                            <th id="th_list_customer">Trạng thái</th>
+                            <th id="th_list_customer">Sửa/Xóa</th>
+                        </tr>
+
+                        <?= $table_list_customer ?>
+
+                    </table>
+                </div>
+
+                 <!-- SỬA NHÂN VIÊN -->
+                 <div class="add_employee" style="display: <?= $display_edit_employee ?>;">
+                    <label id="label_manager_employee">Chỉnh sửa nhân viên</label><br>
+                    <div class="tools_employee">
+                        <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
+                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>|
+                        <a id="a_manager_employee" href="index.php?router=admin&control=edit_employee">Edit</a>|
+                        <a id="a_manager_employee" href="">Delete</a>
+                    </div>
+                  
+                        
+
+                </div>
+
+
+                <!-- THÊM NHÂN VIÊN -->
                 <div class="add_employee" style="display: <?= $display_add_employee ?>;">
                     <label id="label_manager_employee">Quản lý nhân viên</label><br>
                     <div class="tools_employee">
@@ -157,6 +272,9 @@
                     </form>
 
                 </div>
+
+
+                <!-- THÊM SẢN PHẨM -->
                 <div class="add_product" style="display: <?= $display_add_product ?>;">
                     <label id="label_manager_product">Quản lý sản phẩm</label><br>
                     <div class="tools_product">

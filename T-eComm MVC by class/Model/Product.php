@@ -27,6 +27,14 @@ class Product
         $this->product_is_new = $is_new;
     }
 
+    public static function show_list_product(){
+        $list_product = new CRUD_Database;
+        $list_product->connect();
+        $sql = "SELECT * FROM list_products";
+        $list = $list_product->executeAll($sql);
+        return $list;
+    }
+
     public static function get_product($product_code){
         $one_product_info = new CRUD_Database;
         $one_product_info->connect();

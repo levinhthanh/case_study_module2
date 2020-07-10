@@ -37,6 +37,15 @@ $change_password = "";
 $display = 'none';
 $content = '';
 
+// Hiển thị danh sách nhân viên
+$display_list_employee = "none";
+$table_list_employee = "";
+// Hiển thị danh sách sản phẩm
+$display_list_product = "none";
+$table_list_product = "";
+// Hiển thị danh sách khách hàng
+$display_list_customer = "none";
+$table_list_customer = "";
 // Add employee
 
 $display_add_employee = "none";
@@ -150,5 +159,14 @@ $product6 = "";
 $product7 = "";
 $product8 = "";
 $product9 = "";
+
+// Thông tin đăng nhập:
+if(isset($_SESSION['employee_fullname'])){
+    $employee_fullname = $_SESSION['employee_fullname'];
+}
+else{
+    $employee_fullname = "";
+}
+
 
 

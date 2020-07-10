@@ -1,19 +1,28 @@
 <?php
+
+
 if (!isset($_GET['router']) && !isset($_POST['router'])) {
     if (isset($_POST['control'])) {
         switch ($_POST['control']) {
             case 'login_require': {
                     if ($account === 'admin' && $password === 'levinhthanh') {
-                        $hiUser = "Xin chào Admin!";
-                        $_SESSION['hiUser'] = $hiUser;
                         include('View/admin/Admin.php');
                         break;
                     } else {
                         if ($account !== '' && $account[0] === '$') {
-                            include('View/employee/employee.php');
-                            break;
+                            $arrayResult = login_process($account, $password, 'employee');
+                            if ($arrayResult[0] === 'success') {
+                                $employee_fullname = $_SESSION['employee_fullname'];
+                                include('View/employee/employee.php');
+                                break;
+                            }
+                            if ($arrayResult[0] === 'error') {
+                                $error_login = $arrayResult[1];
+                                include("View/login_page.php");
+                                break;
+                            }
                         } else {
-                            $arrayResult = login_process($account, $password);
+                            $arrayResult = login_process($account, $password, 'customer');
                             if ($arrayResult[0] === 'success') {
                                 $hiUser = $arrayResult[1];
                                 $_SESSION['hiUser'] = $hiUser;
@@ -26,8 +35,8 @@ if (!isset($_GET['router']) && !isset($_POST['router'])) {
                             if ($arrayResult[0] === 'error') {
                                 $error_login = $arrayResult[1];
                                 include("View/login_page.php");
+                                break;
                             }
-                            break;
                         }
                     }
                 }
@@ -42,12 +51,33 @@ if (!isset($_GET['router']) && !isset($_POST['router'])) {
                     }
             }
         } else {
-            include('Model/get_product_data.php');
-            include('View/home_page.php');
+            //Kiểm tra phiên đăng nhập:
+            if (isset($_SESSION['account']) && isset($_SESSION['password'])) {
+                if (isset($_GET['control']) && $_GET['control'] === 'logout') {
+                } else {
+                    $account = $_SESSION['account'];
+                    $password = $_SESSION['password'];
+                    if ($account === 'admin' && $password === 'levinhthanh') {
+                        include('View/admin/Admin.php');
+                    } else {
+                        if ($account !== '' && $account[0] === '$') {
+                            $employee_fullname = $_SESSION['employee_fullname'];
+                            include('View/employee/employee.php');
+                        } else {
+                            include('Model/get_product_data.php');
+                            include('View/home_page.php');
+                        }
+                    }
+                }
+            }
+            // Vào web lần đầu:
+            else {
+                include('Model/get_product_data.php');
+                include('View/home_page.php');
+            }
         }
     }
-} 
-else {
+} else {
     if (isset($_GET['router'])) {
         $router = $_GET['router'];
         switch ($router) {
@@ -64,8 +94,7 @@ else {
                     break;
                 }
         }
-    } 
-    else //isset($_POST['router'])
+    } else //isset($_POST['router'])
     {
         $router = $_POST['router'];
         switch ($router) {

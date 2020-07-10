@@ -28,6 +28,14 @@ class Employee
         $this->employee_possition = $possition;
         $this->employee_salary = $salary;
     }
+    
+    public static function show_list_employee(){
+        $list_employee = new CRUD_Database;
+        $list_employee->connect();
+        $sql = "SELECT * FROM list_employees";
+        $list = $list_employee->executeAll($sql);
+        return $list;
+    }
 
     public function add_employee(){
         $fullname = $this->employee_fullname;

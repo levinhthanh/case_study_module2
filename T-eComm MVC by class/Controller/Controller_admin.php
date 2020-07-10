@@ -2,6 +2,138 @@
 
 if (isset($_GET['control'])) {
     switch ($_GET['control']) {
+        case 'show_customer_list': {
+            $display_list_customer = "block";
+            $list_customer = Customer::show_list_customer();
+            $table_list_customer = "";
+            foreach ($list_customer as $key => $value) {
+                $code = $value['customer_code'];
+                $name = $value['customer_fullname'];
+                $birthday = $value['customer_birthday'];
+                $address = $value['customer_address'];
+                $phone = $value['customer_phone'];
+                $email = $value['customer_email'];
+                $account = $value['account_name'];
+                $register_day = $value['account_register_day'];
+                $status = $value['account_status'];
+                $table_list_customer .=
+                "
+                <tr>
+                        <td id='td_list_customer'>$code</td>
+                        <td id='td_list_customer'>$name</td>
+                        <td id='td_list_customer'>$address</td>
+                        <td id='td_list_customer'>$birthday</td>
+                        <td id='td_list_customer'>$phone</td>
+                        <td id='td_list_customer'>$email</td>
+                        <td id='td_list_customer'>$account</td>
+                        <td id='td_list_customer'>$register_day</td>
+                        <td id='td_list_customer'>$status</td>
+                        <td id='td_list_customer'>
+                            <div class='edit_delete'>
+                                <a href='index.php?router=admin&control=edit_cus&code=$code' id='btn_edit'><i class='far fa-edit'></i></a>
+                                <a href='index.php?router=admin&control=delete_cus&code=$code' id='btn_delete'><i class='far fa-trash-alt'></i></a>
+                            </div>
+                        </td>
+                </tr>
+                ";
+            }
+            include('View/admin/Admin.php');
+            break;
+        }
+        case 'show_employee_list': {
+                $display_list_employee = "block";
+                $list_employee = Employee::show_list_employee();
+                $table_list_employee = "";
+                foreach ($list_employee as $key => $value) {
+                    $code = $value['employee_code'];
+                    $name = $value['employee_fullname'];
+                    $birthday = $value['employee_birthday'];
+                    $address = $value['employee_address'];
+                    $phone = $value['employee_phone'];
+                    $email = $value['employee_email'];
+                    $salary = $value['employee_salary'];
+                    $salary = number_format($salary,0,',','.');
+                    $join_day = $value['employee_join_day'];
+                    $possition = $value['employee_possition'];
+                    $account = $value['account_name'];
+                    $table_list_employee .=
+                    "
+                    <tr>
+                            <td id='td_list_employee'>$code</td>
+                            <td id='td_list_employee'>$name</td>
+                            <td id='td_list_employee'>$birthday</td>
+                            <td id='td_list_employee'>$address</td>
+                            <td id='td_list_employee'>$phone</td>
+                            <td id='td_list_employee'>$email</td>
+                            <td id='td_list_employee'>$possition</td>
+                            <td id='td_list_employee'>$salary đ</td>
+                            <td id='td_list_employee'>$join_day</td>
+                            <td id='td_list_employee'>$account</td>
+                            <td id='th_list_employee'>
+                                <div class='edit_delete'>
+                                    <a href='index.php?router=admin&control=edit_emp&code=$code' id='btn_edit'><i class='far fa-edit'></i></a>
+                                    <a href='index.php?router=admin&control=delete_emp&code=$code' id='btn_delete'><i class='far fa-trash-alt'></i></a>
+                                </div>
+                            </td>
+                    </tr>
+                    ";
+                }
+                include('View/admin/Admin.php');
+                break;
+            }
+            case 'show_product_list': {
+                $display_list_product = "block";
+                $list_product = Product::show_list_product();
+                $table_list_product = "";
+                foreach ($list_product as $key => $value) {
+                    $code = $value['product_code'];
+                    $images = $value['product_images'];
+                    $image_array = explode(',', $images);
+                    $image = $image_array[0];
+                    $name = $value['product_name'];
+                    $price_buy = $value['product_price_buy'];
+                    $price_buy = number_format($price_buy,0,',','.');
+                    $price_sale = $value['product_price_sale'];
+                    $price_sale = number_format($price_sale,0,',','.');
+                    $status = $value['product_status'];
+                    $line = $value['product_line_name'];
+                    $ware = $value['warehouse_name'];
+                    $count = $value['product_count'];
+                    $day_in = $value['warehosing_day'];
+                    $table_list_product .=
+                    "
+                    <tr>
+                            <td id='td_list_product'>$code</td>
+                            <td id='td_list_product'><img id='img_list_product' src='$image'></td>
+                            <td id='tb_product_name'>$name</td>
+                            <td id='td_list_product'>$price_buy đ</td>
+                            <td id='td_list_product'>$price_sale đ</td>
+                            <td id='td_list_product'>$status</td>
+                            <td id='td_list_product'>$line</td>
+                            <td id='td_list_product'>$ware</td>
+                            <td id='td_list_product'>$count</td>
+                            <td id='td_list_product'>$day_in</td>
+                            <td id='td_list_product'>
+                                <div class='edit_delete'>
+                                    <a href='index.php?router=admin&control=edit_prod&code=$code' id='btn_edit'><i class='far fa-edit'></i></a>
+                                    <a href='index.php?router=admin&control=delete_prod&code=$code' id='btn_delete'><i class='far fa-trash-alt'></i></a>
+                                </div>
+                            </td>    
+                    </tr>
+                    ";
+                }
+                include('View/admin/Admin.php');
+                break;
+            }
+        case 'logout': {
+                $hiUser = "";
+                $log_in = "block;";
+                $log_out = "none;";
+                session_destroy();
+                include('Model/get_product_data.php');
+                include('View/home_page.php');
+                break;
+            }
         case 'add_employee': {
                 $display_add_employee = 'block';
                 include('View/admin/Admin.php');
@@ -169,7 +301,7 @@ if (isset($_GET['control'])) {
                         $price_sale_status  =  'fas fa-pencil-alt';
                         $count_status  =  'fas fa-pencil-alt';
                         $images_status  =  'fas fa-pencil-alt';
-                    
+
                         $price_buy_color = 'black';
                         $price_sale_color = 'black';
                         $count_color = 'black';

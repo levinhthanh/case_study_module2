@@ -75,12 +75,14 @@ if (!isset($_SESSION["product_code_$i"])) {
     $total_price_ss = 0;
     for ($i = 0; isset($_SESSION["product_code_$i"]); $i++) {
         $code = $_SESSION["product_code_$i"];
+        $count = $_SESSION["product_count_$i"];
         $get_name_and_price = new CRUD_Database;
         $get_name_and_price->connect();
         $result = $get_name_and_price->executeOne("SELECT product_name, product_price_sale FROM products WHERE product_code = '$code'");
         $name = $result['product_name'];
         $price_ss = $result['product_price_sale'];
         $price = number_format($price_ss,0,',','.');
+        $price_ss = $price_ss * $count;
         $total_price_ss += (float) $price_ss;
         $total_price = number_format($total_price_ss,0,',','.');
         $box_products_show = $box_products_show .
@@ -92,7 +94,7 @@ if (!isset($_SESSION["product_code_$i"])) {
                         </tr>
                         <tr>
                             <td id='box_product_title'>Số lượng:</td>
-                            <td id='box_product_value'>1</td>
+                            <td id='box_product_value'>$count</td>
                         </tr>
                     </table>";
     }

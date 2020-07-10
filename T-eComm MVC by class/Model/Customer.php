@@ -26,6 +26,14 @@ class Customer
         $this->customer_is_familiar = 'False';
     }
 
+    public static function show_list_customer(){
+        $list_customer = new CRUD_Database;
+        $list_customer->connect();
+        $sql = "SELECT * FROM list_customers";
+        $list = $list_customer->executeAll($sql);
+        return $list;
+    }
+
     public static function watch_product_line($view){
         $get_product = new CRUD_Database;
         $get_product->connect();
