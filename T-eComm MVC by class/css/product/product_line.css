@@ -1,0 +1,35 @@
+.grid_products{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 0.1vw;
+  }
+.product_show{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 0.1vw solid rgba(0, 0, 0, 0.8);
+    margin: 0.1vw;
+    height: 34vw;
+    
+  }
+  #image_product_show{
+      width: 20vw;
+      display: block;
+      margin: auto;
+      
+  }
+  #name_product_show{
+      display: block;
+      font-weight: bold;
+  }
+  #price_product_show{
+    display: block;
+    color: red;
+}
+  #button_product_show{
+      display: block;
+      border: solid 0.1vw darkgrey;
+      margin: auto;
+      color: white;
+      background-color: darkorange;
+      padding: 0.2vw 0.5vw;
+
+  }

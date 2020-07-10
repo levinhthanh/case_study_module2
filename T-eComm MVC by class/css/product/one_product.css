@@ -1,0 +1,151 @@
+.one_product{
+    display: flex;
+    width: 100%;
+    padding: 1.5vw;
+    height: 35vw;
+}
+.one_product_left{
+    width: 40%;
+}
+.slide_one_product{
+    position: relative;
+    width: 100%;
+    border: solid 0.2px darkgray;
+  }
+.img_slide{
+    display: none;
+    width: 100%;
+    
+}
+.img_slide:hover{
+    transform: scale(1.5);
+}
+.button_one_product_left{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    top: 18vw;
+    left: 0.5vw;
+}
+.button_one_product_right{
+    width: 1.5vw;
+    height: 3vw;
+    position: absolute;
+    top: 18vw;
+    right: 0.5vw;
+}
+.button_one_product_left:hover,
+.button_one_product_right:hover{
+     background-color: yellow;
+}
+.button_one_product_left:focus,
+.button_one_product_right:focus{
+     outline: none;
+}
+.one_product_right{
+    width: 50%;
+    margin-left: 1.5vw;
+}
+
+#one_product_name{
+    display: block;
+    color: darkorange;
+    border-bottom: solid 0.1vw dimgray;
+    font-size: 2vw;
+    padding-bottom: 1vw;
+}
+.one_product_price_sale{
+    margin-top: 1vw;
+}
+#price_sale_title{
+    color: red;
+}
+#btn_buy_product{
+    margin-top: 2vw;
+    padding: 0.5vw;
+    background-color: yellow;
+    width: 20vw;
+    font-weight: bold;
+}
+#btn_advisory{
+    margin-top: 2vw;
+    padding: 0.5vw;
+    background-color: blue;
+    color: white;
+    width: 20vw;
+    font-weight: bold;
+}
+.hot_new{
+    display: flex;
+    justify-content: center;
+    margin-top: 1vw;
+}
+#hot_lable{
+    width: 15%;
+}
+#new_lable{
+    width: 15%;
+    margin-left: 2vw;
+}
+.comments{
+    width: 90%;
+    margin: auto;
+}
+#comment_title{
+    text-align: left;
+    padding: 0.1vw;
+    font-size: 1.5vw;
+    color: darkgrey;
+    border-bottom: solid 0.1vw darkgrey;
+}
+.content_comment{
+    display: block;
+    padding: 0.2vw;
+}
+.cover_comment{
+    display: flex;
+}
+.customer_name{
+    color: darkorange;
+    padding: 0.1vw;
+    margin-left: 3vw;
+}
+.customer_comment{
+    color: darkturquoise;
+    margin-left: 1vw;
+    padding: 0.1vw;
+}
+.new_comment{
+    text-align: left;
+}
+
+#comment_content{
+    padding: 0.2vw;
+    padding-left: 1vw;
+    width: 80%;
+    margin-top: 1vw;
+}
+#button_add_comment{
+    width: 10vw;
+    padding: 0.2vw;
+    margin-top: 1vw;
+    margin-bottom: 10vw;
+}
+#comment_content:focus{
+    outline: none;
+}
+#button_add_comment:hover{
+    cursor: pointer;
+    background-color: darkorange;
+    color: darkred;
+}
+#login_to_comment{
+    color: red;
+    display: block;
+    margin-top: 0.5vw;
+}
+#comment_success{
+    color: yellow;
+    display: block;
+    margin-top: 0.5vw;
+}

@@ -1,0 +1,210 @@
+.box_product_name{
+    display: block;
+    color: deepskyblue;
+    font-size: 1vw;
+    padding: 0.1vw;
+    border-top: solid 0.1vw darkgrey;
+    border-bottom: solid 0.1vw darkgrey;
+}
+.box_product_info{
+    text-align: center;
+}
+#box_product_title{
+    color: darkgray;
+    font-size: 1vw;
+    width: 4vw;
+    text-align: left;
+    padding-left: 1.5vw;
+}
+#box_product_value{
+    color: darkgray;
+    font-size: 1vw;
+    width: 5vw;
+}
+#price_tmp{
+    font-size: 1vw;
+    text-align: right;
+    border-top: solid 0.1vw darkgrey;
+    color: darkgrey;
+}
+#btn_buy{
+    width: 10vw;
+    height: 2vw;
+    margin: auto;
+    margin-top: 1vw;
+}
+#btn_buy:focus{
+    outline: none;
+}
+#btn_buy:hover{
+    color: white;
+    background-color: darkorange;
+}
+
+
+/* Trang giỏ hàng */
+.box{
+    display: flex;
+    width: 100%;
+    margin-top: 2vw;
+}
+.box_left{
+    width: 45%;
+    margin: auto;
+    text-align: left;
+}
+.box_right{
+    width: 50%;
+    text-align: left;
+}
+#label_box_left,#label_box_right{
+    font-size: 2vw;
+    color: darkred;
+    padding: 3vw;
+}
+.table_box_products{
+    border: solid 0.1vw darkgray;
+    width: 100%;
+    margin: auto;
+    margin-top: 1vw;
+    text-align: center;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+.table_total_price{
+    border: solid 0.1vw darkgray;
+    width: 60%;
+    margin: auto;
+    margin-top: 1vw;
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: 40%;
+}
+#colume1{
+    width: 20%;
+    height: 7vw;
+    border: solid 0.1vw darkgray;
+}
+#colume2{
+    width: 20%;
+    height: 7vw;
+    border: solid 0.1vw darkgray;
+}
+#colume3{
+    width: 20%;
+    height: 7vw;
+    border: solid 0.1vw darkgray;
+}
+#colume4{
+    width: 20%;
+    height: 7vw;
+    border: solid 0.1vw darkgray;
+}
+#colume5{
+    width: 20%;
+    height: 7vw;
+    border: solid 0.1vw darkgray;
+}
+#change_count_btn{
+    border: solid 0.1vw darkgrey;
+    padding: 0.2vw;
+    margin: 0 0.5vw;
+    height: 0.5vw;
+    width: 20%;
+}
+#box_info_send{
+    margin: 1vw;
+    padding: 0.5vw;
+    width: 70%;
+    margin-left: 3vw;
+    padding-left: 1vw;
+    border: solid 0.1vw darkgrey;
+}
+
+#box_btn_send{
+    width: 20vw;
+    padding: 1vw;
+    margin-top: 2vw;
+    box-shadow: darkgrey 0.1vw 0.1vw;
+    background-color: darkorange;
+    color: white;
+    margin-left: 11vw;
+}
+#box_btn_send:hover{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+#box_image_product{
+    width: 90%;
+}
+.box_payment{
+    margin: auto;
+    padding: 2vw;
+}
+#label_box_payment{
+    font-size: 2vw;
+    color: darkred;
+    padding: 1vw 5vw;
+    display: block;
+}
+#payment_way{
+   width: 50vw;
+   padding: 1vw;
+   padding-left: 3vw;
+   padding-right: 2vw;
+   border: solid 0.1vw darkgray;
+}
+#payment_way:focus{
+    outline: none;
+}
+#fee{
+    display: block;
+    color: darkred;
+    padding: 0.5vw;
+}
+#table_box_payment{
+    border: darkgray solid 0.1vw;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 2vw;
+}
+#td_box_payment{
+    border: darkgray solid 0.1vw;
+    padding: 0.5vw;
+}
+#sum_money{
+    display: block;
+    color: darkred;
+    font-size: 2vw;
+}
+#payment_confirm_btn{
+    width: 20vw;
+    padding: 1vw;
+    margin-top: 2vw;
+    box-shadow: darkgrey 0.1vw 0.1vw;
+    background-color: darkorange;
+    color: white;
+}
+#payment_confirm_btn:hover{
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+#label_box_finish{
+    font-size: 1.2vw;
+    padding: 0.1vw;
+    display: block;
+    color: black;
+}
+#label_box_finish_info{
+    font-size: 1.5vw;
+    padding: 0.1vw;
+    display: block;
+    color: darkred;
+    font-weight: bold;
+}
+#a_box_finish_info{
+    font-size: 1.2vw;
+    color: darkorange;
+}
