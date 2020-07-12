@@ -25,6 +25,20 @@
     text-align: center;
     padding: 0.3vw 0;
     font-size: 1.7vw;
+    position: relative;
+}
+.drop_product_list{
+    display: none;
+    width: 11vw;
+    height: 10vw;
+    background-color: #303032;
+    top: 3vw;
+    left: 1vw;
+    position: absolute;
+    overflow: auto;
+}
+.product_list:hover .drop_product_list{
+    display: block;
 }
 .product_new,.product_hot,.promotion,.connect{
     width: 10%;

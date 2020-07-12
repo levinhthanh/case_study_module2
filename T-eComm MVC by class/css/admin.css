@@ -175,6 +175,7 @@
             height: 84vh;
             background-color: white;
             font-size: 1vw;
+            overflow: scroll;
           }
           #label_manager_product{
              color: black;
@@ -268,11 +269,11 @@
             background-color: #D8D8D8;
           }
           select{
-            width: 10vw;
-            margin-left: 7.5vw;  
-            margin-right: 5.5vw;  
+            width: 13vw;
+           margin: auto; 
             font-size: 1vw; 
-            padding-left: 3vw;  
+            padding: 0.3vw;
+            padding-left: 1vw;
             background-color: #D8D8D8;
           }
           #button_add{
@@ -327,9 +328,10 @@
        }
        #th_list_employee{
         border: solid 0.1vw darkgrey;
-        padding: 0.5vw;
-        color: darkred;
+        padding: 1vw;
+        color: darkorange;
         font-weight: bold;
+        background-color: dimgrey;
        }
        /* show_list_product */
        .list_product{
@@ -350,10 +352,11 @@
      padding: 0.5vw;
     }
     #th_list_product{
-     border: solid 0.1vw darkgrey;
-     padding: 0.5vw;
-     color: darkred;
-     font-weight: bold;
+        border: solid 0.1vw darkgrey;
+        padding: 1vw;
+        color: darkorange;
+        font-weight: bold;
+        background-color: dimgrey;
     }
     #img_list_product{
         width: 5vw;
@@ -383,10 +386,11 @@
      padding: 0.5vw;
     }
     #th_list_customer{
-     border: solid 0.1vw darkgrey;
-     padding: 0.5vw;
-     color: darkred;
-     font-weight: bold;
+        border: solid 0.1vw darkgrey;
+        padding: 1vw;
+        color: darkorange;
+        font-weight: bold;
+        background-color: dimgrey;
     }
     #img_list_customer{
         width: 5vw;
@@ -400,13 +404,12 @@
     /* SỬA VÀ XÓA */
     #btn_edit{
         width: 1vw;
-        padding: 0.2vw;
-        margin-right: 0.2vw;
-        color: yellow;
+        margin-left: 1vw;
+        margin-right: 0.5vw;
+        color: blue;
     }
     #btn_delete{
         width: 1vw;
-        padding: 0.2vw;
         color: red;
     }
     .edit_delete{
@@ -414,3 +417,143 @@
         text-align: center;
     }
    
+
+
+
+     /* edit_employee */
+     .edit_employee{
+        height: 85vh;
+        background-color: white;
+        font-size: 1vw;
+      }
+    #table_edit_employee{
+        border: solid 0.1vw darkgrey;
+        border-collapse: collapse;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        background-color: #D8D8D8;
+        width: 60%;
+    }
+    #td_edit_employee{
+     border: solid 0.1vw darkgrey;
+     padding: 0.5vw;
+    }
+    #th_edit_employee{
+     border: solid 0.1vw darkgrey;
+     padding: 1vw;
+     color: darkorange;
+     font-weight: bold;
+     background-color: dimgrey;
+    }
+    #btn_update_employee{
+        margin-left: 47vw;
+        width: 15vw;
+        padding: 0.5vw;
+        color: white;
+        background-color: darkorange;
+    }
+    #btn_update_employee:focus{
+        outline: none;
+    }
+    #btn_update_employee:hover{
+        cursor: pointer;
+        background-color: blue;
+    }
+    #error_update_employee{
+        display: block;
+        color: red;
+        margin-left: 47vw;
+        padding: 0.5vw;
+    }
+    /* Xóa nhân viên */
+    #lable_delete_employee{
+        margin-left: 30vw;
+        display: block;
+        padding: 0.5vw;
+    }
+    .btn_delete{
+        display: flex;
+        margin-left: 31.5vw;
+    }
+    #confirm_delete{
+        width: 8vw;
+        padding: 0.5vw;
+        color: white;
+        background-color: green;
+
+    }
+    #cancel_delete{
+        width: 8vw;
+        padding: 0.5vw;
+        color: white;
+        background-color: red;
+        margin-left: 2vw;
+
+    }
+    #confirm_delete:hover, #cancel_delete:hover{
+        cursor: pointer;
+        color: black;
+    }
+   
+
+     /* edit_product */
+     .edit_product{
+        height: 85vh;
+        background-color: white;
+        font-size: 1vw;
+        overflow: scroll;
+      }
+      #table_edit_product{
+        border: solid 0.1vw darkgrey;
+        border-collapse: collapse;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        background-color: #D8D8D8;
+        width: 80%;
+        
+    }
+    #td_edit_product{
+     border: solid 0.1vw darkgrey;
+     padding: 0.5vw;
+    }
+    #th_edit_product{
+     border: solid 0.1vw darkgrey;
+     padding: 1vw;
+     color: darkorange;
+     font-weight: bold;
+     background-color: dimgrey;
+    }
+    #btn_update_product{
+        margin-left: 52vw;
+        width: 15vw;
+        padding: 0.5vw;
+        color: white;
+        background-color: darkorange;
+    }
+    #btn_update_product:focus{
+        outline: none;
+    }
+    #btn_update_product:hover{
+        cursor: pointer;
+        background-color: blue;
+    }
+    #error_update_product{
+        display: block;
+        color: red;
+        margin-left: 52vw;
+        padding: 0.5vw;
+    }
+
+     /* Xóa sản phẩm */
+     #lable_delete_product{
+        margin-left: 26vw;
+        display: block;
+        padding: 0.5vw;
+    }
+     /* Xóa khách hàng */
+     #lable_delete_customer{
+        margin-left: 29vw;
+        display: block;
+        padding: 0.5vw;
+    }
+    

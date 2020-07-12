@@ -28,3 +28,11 @@ function showDivs(n) {
   }
   x[slideIndex - 1].style.display = "block";
 }
+
+
+// dot dot dot
+function show_product_line(){
+  content = '<a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=candino">Candino</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=claude_bernard">Claude Bernard</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=fossil">Fossil</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=orient">Orient</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=movado">Movado</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=police">Police</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=teintop">Teintop</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=rolex">Rolex</a><a id="watch_line" href="index.php?router=customer&control=watch_product&product_line=omega">Omega</a>';
+  document.getElementById('contents').innerHTML = content;
+  document.getElementById('watch_line_dot_dot_dot').innerHTML = '';
+}

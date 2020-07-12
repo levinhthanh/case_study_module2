@@ -49,15 +49,12 @@
                         <div class="dropdown-content">
                             <label id="lable_select">Quản lý nhân viên</label><br>
                             <a id="a_select" href="index.php?router=admin&control=add_employee">Thêm nhân viên</a>
-                            <a id="a_select" href="">Xóa nhân viên</a>
-                            <a id="a_select" href="">Chỉnh sửa nhân viên</a>
+                            <a id="a_select" href="index.php?router=admin&control=show_employee_list">Chỉnh sửa nhân viên</a>
                             <label id="lable_select">Quản lý sản phẩm</label><br>
                             <a id="a_select" href="index.php?router=admin&control=add_product">Thêm sản phẩm</a>
-                            <a id="a_select" href="">Xóa sản phẩm</a>
-                            <a id="a_select" href="">Chỉnh sửa sản phẩm</a>
-                            <label id="lable_select">Quản lý tài khoản</label><br>
-                            <a id="a_select" href="">Xóa tài khoản</a>
-                            <a id="a_select" href="">Chỉnh sửa tài khoản</a>
+                            <a id="a_select" href="index.php?router=admin&control=show_product_list">Chỉnh sửa sản phẩm</a>
+                            <label id="lable_select">Quản lý khách hàng</label><br>
+                            <a id="a_select" href="index.php?router=admin&control=show_customer_list">Chỉnh sửa tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -87,9 +84,7 @@
                     <label id="label_manager_employee">Danh sách nhân viên</label><br>
                     <div class="tools_employee">
                         <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=edit_employee">Edit</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=delete_employee">Delete</a>
+                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>
                     </div>
                     <table id="table_list_employee">
                         <tr>
@@ -106,8 +101,21 @@
                             <th id="th_list_employee">Sửa/Xóa</th>
                         </tr>
                         <?= $table_list_employee ?>
-
                     </table>
+                    <label id="lable_delete_employee"><?= $delete_employee ?></label>
+                    <div class="btn_delete">
+                        <form action="index.php" method="post">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="require_delete_employee">
+                            <input type="hidden" name="code" value="<?= $code_emp ?>">
+                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_delete ?>;">
+                        </form>
+                        <form action="index.php" method="get">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="show_employee_list">
+                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_delete ?>;">
+                        </form>
+                    </div>
                 </div>
 
                 <!-- DANH SÁCH SẢN PHẨM -->
@@ -115,9 +123,21 @@
                     <label id="label_manager_product">Danh sách sản phẩm</label><br>
                     <div class="tools_product">
                         <a id="a_manager_product" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>|
-                        <a id="a_manager_product" href="">Edit</a>|
-                        <a id="a_manager_product" href="">Delete</a>
+                        <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>
+                    </div>
+                    <label id="lable_delete_product"><?= $delete_product ?></label>
+                    <div class="btn_delete">
+                        <form action="index.php" method="post">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="require_delete_product">
+                            <input type="hidden" name="code" value="<?= $code_prod ?>">
+                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_delete ?>;">
+                        </form>
+                        <form action="index.php" method="get">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="show_product_list">
+                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_delete ?>;">
+                        </form>
                     </div>
                     <table id="table_list_product">
                         <tr>
@@ -137,15 +157,39 @@
                         <?= $table_list_product ?>
 
                     </table>
+
                 </div>
+
+                <!-- CHỈNH SỬA SẢN PHẨM -->
+                <div class="edit_product" style="display: <?= $display_edit_product ?>;">
+                    <label id="label_manager_product">Chỉnh sửa sản phẩm</label><br>
+                    <div class="tools_product">
+                        <a id="a_manager_product" href="index.php?router=admin">Home</a>|
+                        <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>
+                    </div>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="router" value="admin">
+                        <input type="hidden" name="control" value="require_update_product">
+                        <input type="hidden" name="product_code" value=<?= $code_prod ?>>
+                        <table id="table_edit_product">
+                            <tr>
+                                <th id="th_edit_product">Mục</th>
+                                <th id="th_edit_product">Thông tin sản phẩm</th>
+                                <th id="th_edit_product">Chỉnh sửa</th>
+                            </tr>
+                            <?= $table_one_product ?>
+                        </table>
+                        <label id="error_update_product"><?= $error_update ?></label>
+                        <button id="btn_update_product">Cập nhật</button>
+                    </form>
+                </div>
+
 
                 <!-- DANH SÁCH KHÁCH HÀNG -->
                 <div class="list_product" style="display: <?= $display_list_customer ?>;">
                     <label id="label_manager_customer">Danh sách khách hàng</label><br>
                     <div class="tools_customer">
-                        <a id="a_manager_customer" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_customer" href="">Edit</a>|
-                        <a id="a_manager_customer" href="">Delete</a>
+                        <a id="a_manager_customer" href="index.php?router=admin">Home</a>
                     </div>
                     <table id="table_list_customer">
                         <tr>
@@ -164,20 +208,61 @@
                         <?= $table_list_customer ?>
 
                     </table>
+                    <!-- Xóa tài khoản KH -->
+                    <label id="lable_delete_customer"><?= $delete_customer ?></label>
+                    <div class="btn_delete">
+                        <form action="index.php" method="post">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="require_delete_customer">
+                            <input type="hidden" name="code" value="<?= $code_cus ?>">
+                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_delete ?>;">
+                        </form>
+                        <form action="index.php" method="get">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="show_customer_list">
+                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_delete ?>;">
+                        </form>
+                    </div>
+
+                     <!-- Khóa/Mở tài khoản KH -->
+                     <label id="lable_edit_customer"><?= $edit_customer ?></label>
+                    <div class="btn_delete">
+                        <form action="index.php" method="post">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="require_edit_customer">
+                            <input type="hidden" name="code" value="<?= $code_cus ?>">
+                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_edit ?>;">
+                        </form>
+                        <form action="index.php" method="get">
+                            <input type="hidden" name="router" value="admin">
+                            <input type="hidden" name="control" value="show_customer_list">
+                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_edit ?>;">
+                        </form>
+                    </div>
                 </div>
 
-                 <!-- SỬA NHÂN VIÊN -->
-                 <div class="add_employee" style="display: <?= $display_edit_employee ?>;">
+                <!-- CHỈNH SỬA NHÂN VIÊN -->
+                <div class="edit_employee" style="display: <?= $display_edit_employee ?>;">
                     <label id="label_manager_employee">Chỉnh sửa nhân viên</label><br>
                     <div class="tools_employee">
                         <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=edit_employee">Edit</a>|
-                        <a id="a_manager_employee" href="">Delete</a>
+                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>
                     </div>
-                  
-                        
-
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="router" value="admin">
+                        <input type="hidden" name="control" value="require_update_employee">
+                        <input type="hidden" name="employee_code" value=<?= $code_emp ?>>
+                        <table id="table_edit_employee">
+                            <tr>
+                                <th id="th_edit_employee">Mục</th>
+                                <th id="th_edit_employee">Thông tin nhân viên</th>
+                                <th id="th_edit_employee">Chỉnh sửa</th>
+                            </tr>
+                            <?= $table_one_employee ?>
+                        </table>
+                        <label id="error_update_employee"><?= $error_update ?></label>
+                        <button id="btn_update_employee">Cập nhật</button>
+                    </form>
                 </div>
 
 
@@ -185,10 +270,7 @@
                 <div class="add_employee" style="display: <?= $display_add_employee ?>;">
                     <label id="label_manager_employee">Quản lý nhân viên</label><br>
                     <div class="tools_employee">
-                        <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>|
-                        <a id="a_manager_employee" href="">Edit</a>|
-                        <a id="a_manager_employee" href="">Delete</a>
+                        <a id="a_manager_employee" href="index.php?router=admin">Home</a>
                     </div>
                     <label id="label_add_employee">Thêm nhân viên</label>
                     <form action="index.php" method="post">
@@ -205,8 +287,7 @@
                             <tr>
                                 <td id="td_left">Ngày sinh</td>
                                 <td id="td_right">
-                                    <input type="text" name="employee_new_birthday" value="<?= $birthday_employee ?>">
-                                    <i id="icon_status" style="color:<?= $birthday_color ?>;" class='<?= $birthday_status ?>'></i>
+                                    <input style="margin-left: 1.5vw;" type="date" name="employee_new_birthday" value="<?= $birthday_employee ?>">
                                 </td>
                             </tr>
                             <tr>
@@ -248,10 +329,10 @@
                                 <td id="td_left">Chức vụ</td>
                                 <td id="td_right">
                                     <select name="employee_new_possition" id="">
-                                        <option value="Quản lý">Quản lý</option>
-                                        <option value="Kế toán">Kế toán</option>
-                                        <option value="Đóng gói">Đóng gói</option>
-                                        <option value="IT">IT</option>
+                                        <option value="Nhân viên kinh doanh">Nhân viên kinh doanh</option>
+                                        <option value="Quản lý bán hàng">Quản lý bán hàng</option>
+                                        <option value="Nhân viên đóng gói">Nhân viên đóng gói</option>
+                                        <option value="Nhân viên IT">Nhân viên IT</option>
                                     </select>
                                     <i id="icon_status" class="far fa-hand-pointer"></i>
                                 </td>
@@ -280,8 +361,7 @@
                     <div class="tools_product">
                         <a id="a_manager_product" href="index.php?router=admin">Home</a>|
                         <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>|
-                        <a id="a_manager_product" href="">Edit</a>|
-                        <a id="a_manager_product" href="">Delete</a>
+                        <a id="a_manager_product" href="index.php?router=admin&control=show_product_list">Edit</a>
                     </div>
                     <label id="label_add_product">Thêm sản phẩm</label>
                     <form action="index.php" method="post">

@@ -26,6 +26,53 @@ class Customer
         $this->customer_is_familiar = 'False';
     }
 
+    public static function edit_customer($customer_code){
+        $get_account_code = new CRUD_Database;
+        $get_account_code->connect();
+        $sql = "SELECT Accounts_account_code FROM customers WHERE customer_code = $customer_code";
+        $row = $get_account_code->executeOne($sql);
+        $account_code = $row['Accounts_account_code'];
+        $account_code = (int)$account_code;
+
+        $get_account_status = new CRUD_Database;
+        $get_account_status->connect();
+        $sql = "SELECT account_status FROM accounts WHERE account_code = $account_code";
+        $row = $get_account_status->executeOne($sql);
+        $account_status = $row['account_status'];
+
+        if($account_status === 'Open'){
+            $edit_status = new CRUD_Database;
+            $edit_status->connect();
+            $sql = "UPDATE accounts SET account_status = 'Banned' WHERE account_code = '$account_code'";
+            $edit_status->updateData($sql);
+        }
+
+        if($account_status === 'Banned'){
+            $edit_status = new CRUD_Database;
+            $edit_status->connect();
+            $sql = "UPDATE accounts SET account_status = 'Open' WHERE account_code ='$account_code'";
+            $edit_status->updateData($sql);
+        }
+    }
+
+    public static function delete_customer($customer_code){
+        $get_account_code = new CRUD_Database;
+        $get_account_code->connect();
+        $sql = "SELECT Accounts_account_code FROM customers WHERE customer_code = $customer_code";
+        $row = $get_account_code->executeOne($sql);
+        $account_code = $row['Accounts_account_code'];
+
+        $delete_customer = new CRUD_Database;
+        $delete_customer->connect();
+        $sql = "DELETE FROM customers WHERE customer_code = $customer_code";
+        $delete_customer->deleteData($sql);
+
+        $delete_account = new CRUD_Database;
+        $delete_account->connect();
+        $sql = "DELETE FROM accounts WHERE account_code = $account_code";
+        $delete_account->deleteData($sql);
+    }
+
     public static function show_list_customer(){
         $list_customer = new CRUD_Database;
         $list_customer->connect();

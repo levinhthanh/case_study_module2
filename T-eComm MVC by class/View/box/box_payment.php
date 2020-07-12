@@ -28,15 +28,32 @@
         <div class="product_list">
             <label id="label_tool">DANH MỤC SẢN PHẨM</label>
             <i id="icon_dropdown" class="fas fa-angle-down"></i>
+            <div class="drop_product_list">
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=rado">Rado</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=casio">Casio</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=seiko">Seiko</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=citizen">Citizen</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=apple_watch">Apple watch</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=bulova">Bulova</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=candino">Candino</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=claude_bernard">Claude Bernard</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=fossil">Fossil</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=orient">Orient</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=movado">Movado</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=police">Police</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=teintop">Teintop</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=rolex">Rolex</a>
+                    <a id="watch_line_drop" href="index.php?router=customer&control=watch_product&product_line=omega">Omega</a>
+                </div>
         </div>
         <div class="product_new">
-            <a id="label_tool" href="index.php?router=customer&control=new_product_list">SẢN PHẨM MỚI</a>
-            <i id="icon_dropdown" class="fas fa-angle-down"></i>
-        </div>
-        <div class="product_hot">
-            <a id="label_tool" href="index.php?router=customer&control=hot_product_list">SẢN PHẨM HOT</a>
-            <i id="icon_dropdown" class="fas fa-angle-down"></i>
-        </div>
+                <a id="label_tool" href="index.php?router=customer&control=new_product_list">SẢN PHẨM MỚI</a>
+                <i id="icon_dropdown" class="fab fa-accusoft"></i>
+            </div>
+            <div class="product_hot">
+                <a id="label_tool" href="index.php?router=customer&control=hot_product_list">SẢN PHẨM HOT</a>
+                <i id="icon_dropdown" class="fab fa-hotjar"></i>
+            </div>
         <div class="promotion">
             <label id="label_tool">KHUYẾN MÃI</label>
             <i id="icon_dropdown" class="fas fa-angle-down"></i>

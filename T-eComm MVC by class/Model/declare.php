@@ -46,6 +46,32 @@ $table_list_product = "";
 // Hiển thị danh sách khách hàng
 $display_list_customer = "none";
 $table_list_customer = "";
+//Chỉnh sửa nhân viên
+$display_edit_employee = 'none';
+$table_one_employee = "";
+$error_update = "";
+$code_emp = "";
+// Xóa nhân viên
+$delete_employee = "";
+$btn_delete = "none";
+
+//Chỉnh sửa sản phẩm
+$display_edit_product = 'none';
+$table_one_product = "";
+$error_update = "";
+$code_prod = "";
+// Xóa sản phẩm
+$delete_product = "";
+$btn_delete = "none";
+// Chỉnh sửa hoặc xóa khách hàng
+$code_cus = "";
+$delete_customer = "";
+$btn_delete = "none";
+$edit_customer = "";
+$btn_edit = "none";
+
+
+
 // Add employee
 
 $display_add_employee = "none";
@@ -87,7 +113,6 @@ if (isset($_COOKIE['salary_employee'])) {
 
 if (isset($_GET['control']) && $_GET['control'] === 'add_employee') {
     $fullname_status = 'fas fa-pencil-alt';
-    $birthday_status  =  'fas fa-pencil-alt';
     $address_status  =  'fas fa-pencil-alt';
     $phone_status  =  'fas fa-pencil-alt';
     $email_status  =  'fas fa-pencil-alt';
@@ -96,7 +121,6 @@ if (isset($_GET['control']) && $_GET['control'] === 'add_employee') {
     $salary_status  =  'fas fa-pencil-alt';
 
     $fullname_color = 'black';
-    $birthday_color = 'black';
     $address_color = 'black';
     $phone_color = 'black';
     $email_color = 'black';

@@ -38,5 +38,10 @@ class CRUD_Database{
         $this->result = $this->connect->prepare("$sql");
         $this->result->execute();
     }
+    public function deleteData($sql)
+    {
+        $this->result = $this->connect->prepare("$sql");
+        $this->result->execute();
+    }
 }
 ?>

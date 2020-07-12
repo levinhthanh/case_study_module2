@@ -73,6 +73,7 @@ if (isset($_GET['control'])) {
                 break;
             }
         case 'forgot_password': {
+                include('Model/forgot_password.php');
                 include('View/customer/forgot_password.php');
                 break;
             }
@@ -108,7 +109,8 @@ if (isset($_POST['control'])) {
                 break;
             }
         case "require_get_password": {
-
+                include('Model/forgot_password.php');
+                include('View/customer/forgot_password.php');
                 break;
             }
         case "change_password_require": {
