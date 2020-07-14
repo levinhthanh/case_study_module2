@@ -30,8 +30,10 @@
 
         <div class="search" style="display: flex;">
             <div class="logo"><img id="logo" src="../images/logo/logo.png" alt="logo"></div>
-            <form class="search_product" style="display: flex;" action="" method="post">
-                <label id="show">Tất cả</label>
+            <form class="search_product" style="display: flex;" action="index.php" method="get">
+                <input type="hidden" name="router" value="customer">
+                <input type="hidden" name="control" value="search_product_list">
+                <label id="show"><i class="far fa-edit"></i></label>
                 <input id="inputProduct" type="text" name="search" placeholder="Từ khóa tìm kiếm...">
                 <div id="btn-cover">
                     <img id="btnImg" src="../images/logo/search.png">
@@ -66,6 +68,7 @@
                 <div class="productsList">
                     <a href="index.php?router=customer&control=show_box">
                         <i id="box" class="fas fa-shopping-cart"></i>
+                        <label id="count_in_box"><?=$count_in_box?></label>
                     </a><br>
                     <a href="index.php?router=customer&control=show_box">Giỏ hàng</a>
                 </div>
@@ -108,12 +111,12 @@
                 <a id="label_tool" href="index.php?router=customer&control=hot_product_list">SẢN PHẨM HOT</a>
                 <i id="icon_dropdown" class="fab fa-hotjar"></i>
             </div>
-            <div class="promotion">
+            <!-- <div class="promotion">
                 <label id="label_tool">KHUYẾN MÃI</label>
                 <i id="icon_dropdown" class="fas fa-angle-down"></i>
-            </div>
+            </div> -->
             <div class="connect">
-                <label id="label_tool">LIÊN HỆ</label>
+                <a id="label_tool" href="index.php?router=customer&control=guest_message">LIÊN HỆ</a>
                 <i id="icon_connect" class="far fa-handshake"></i>
             </div>
         </div>

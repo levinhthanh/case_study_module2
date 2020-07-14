@@ -8,9 +8,9 @@ if (isset($_SESSION['product_code']) && isset($_POST['control']) && $_POST['cont
     $product_count = $_SESSION['product_count'];
     $check = false;
     for ($i = 0; isset($_SESSION["product_code_$i"]); $i++) {
-        if($_SESSION["product_code_$i"] === $product_code){
+        if ($_SESSION["product_code_$i"] === $product_code) {
             $count_prt = $_SESSION["product_count_$i"];
-            if(!isset($check_add)){
+            if (!isset($check_add)) {
                 $count_prt++;
                 $check_add = 1;
             }
@@ -24,12 +24,27 @@ if (isset($_SESSION['product_code']) && isset($_POST['control']) && $_POST['cont
         $_SESSION["product_code_$i"] = $product_code;
         $_SESSION["product_count_$i"] = $product_count;
     }
+
+    if (isset($_SESSION["count_in_box"])) {
+        $count_in_box = $_SESSION["count_in_box"];
+        $_SESSION["count_in_box"] = $count_in_box + 1;
+        $count_in_box = $_SESSION["count_in_box"];
+    } else {
+        $_SESSION["count_in_box"] = 1;
+        $count_in_box = $_SESSION["count_in_box"];
+    }
 }
 
 // Hiển thị trang giỏ hàng:
 if (isset($_GET['sub'])) {
     $i = $_GET['sub'];
     $_SESSION["product_count_$i"]--;
+    $count_in_box = $_SESSION["count_in_box"];
+    $_SESSION["count_in_box"] = $count_in_box - 1;
+    if ($_SESSION["count_in_box"] < 0) {
+        $_SESSION["count_in_box"] = 0;
+    }
+    $count_in_box = $_SESSION["count_in_box"];
     if ($_SESSION["product_count_$i"] < 0) {
         $_SESSION["product_count_$i"] = 0;
     }
@@ -37,6 +52,9 @@ if (isset($_GET['sub'])) {
 if (isset($_GET['add'])) {
     $i = $_GET['add'];
     $_SESSION["product_count_$i"]++;
+    $count_in_box = $_SESSION["count_in_box"];
+    $_SESSION["count_in_box"] = $count_in_box + 1;
+    $count_in_box = $_SESSION["count_in_box"];
 }
 
 if (isset($_GET['control']) && $_GET['control'] === 'show_box' && isset($_SESSION["product_code_0"])) {
@@ -57,12 +75,12 @@ if (isset($_GET['control']) && $_GET['control'] === 'show_box' && isset($_SESSIO
         $_SESSION["product_name_$i"] = $name;
         $price_ss = $result['product_price_sale'];
         $_SESSION["product_price_$i"] = $price_ss;
-        $price = number_format($price_ss,0,',','.');
+        $price = number_format($price_ss, 0, ',', '.');
         $images = $result['product_images'];
         $image_array = explode(',', $images);
         $image = $image_array[0];
         $total_price_ss = (float) $price_ss * (float) $count;
-        $total_price = number_format($total_price_ss,0,',','.');
+        $total_price = number_format($total_price_ss, 0, ',', '.');
         $box_products_table = $box_products_table .
             " <tr>
                  <td id='colume1'><img id='box_image_product' src='$image'></td>
@@ -78,7 +96,7 @@ if (isset($_GET['control']) && $_GET['control'] === 'show_box' && isset($_SESSIO
             ";
         $sum_count += $count;
         $sum_total_price_ss += $total_price_ss;
-        $sum_total_price = number_format($sum_total_price_ss,0,',','.');
+        $sum_total_price = number_format($sum_total_price_ss, 0, ',', '.');
     }
     //Lấy thông tin KH từ database để hiển thị:
     $box_account = $_SESSION['account'];
@@ -95,7 +113,7 @@ if (isset($_GET['control']) && $_GET['control'] === 'show_box' && isset($_SESSIO
     $box_customer_address = $row_customer['customer_address'];
 }
 
-if(!isset($_SESSION["product_code_0"])){
+if (!isset($_SESSION["product_code_0"])) {
     $sum_count = "0";
     $sum_total_price = "0";
     $box_customer_name = "";
@@ -104,8 +122,3 @@ if(!isset($_SESSION["product_code_0"])){
     $box_customer_address = "";
     $box_products_table = "";
 }
-
-
-
-
-

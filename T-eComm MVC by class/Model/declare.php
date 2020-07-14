@@ -185,12 +185,12 @@ $product8 = "";
 $product9 = "";
 
 // Thông tin đăng nhập:
-if(isset($_SESSION['employee_fullname'])){
+if (isset($_SESSION['employee_fullname'])) {
     $employee_fullname = $_SESSION['employee_fullname'];
-}
-else{
+} else {
     $employee_fullname = "";
 }
 
-
+// Số sản phẩm trong giỏ hàng:
+$count_in_box = 0;
 

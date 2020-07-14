@@ -4,6 +4,9 @@ include('Model/get_product_data.php');
 
 if(isset($_POST['product'])){
     $product_code = $_POST['product'];
+    if(isset($_SESSION["count_in_box"])) {
+        $count_in_box = $_SESSION['count_in_box'];
+    }
     include('Model/product/product.php');
     include('View/product/product.php');
 }
@@ -11,12 +14,18 @@ if(isset($_POST['product'])){
 
 if (isset($_GET['product'])) {
     $product_code = $_GET['product'];
+    if(isset($_SESSION["count_in_box"])) {
+        $count_in_box = $_SESSION['count_in_box'];
+    }
     include('Model/product/product.php');
     include('View/product/product.php');
 }
 
 if (isset($_GET['product_line'])) {
     $product = $_GET['product_line'];
+    if(isset($_SESSION["count_in_box"])) {
+        $count_in_box = $_SESSION['count_in_box'];
+    }
     switch ($product) {
         case 'rado': {
                 $view = 'rado';

@@ -54,14 +54,14 @@
                 <a id="label_tool" href="index.php?router=customer&control=hot_product_list">SẢN PHẨM HOT</a>
                 <i id="icon_dropdown" class="fab fa-hotjar"></i>
             </div>
-        <div class="promotion">
+        <!-- <div class="promotion">
             <label id="label_tool">KHUYẾN MÃI</label>
             <i id="icon_dropdown" class="fas fa-angle-down"></i>
-        </div>
+        </div> -->
         <div class="connect">
-            <label id="label_tool">LIÊN HỆ</label>
-            <i id="icon_connect" class="far fa-handshake"></i>
-        </div>
+                <a id="label_tool" href="index.php?router=customer&control=guest_message">LIÊN HỆ</a>
+                <i id="icon_connect" class="far fa-handshake"></i>
+            </div> 
     </div>
 
     <div class="main">

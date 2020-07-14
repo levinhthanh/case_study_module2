@@ -3,6 +3,11 @@
 if (isset($_GET['control'])) {
     $control = $_GET['control'];
     switch ($control) {
+        case 'guest_message': {
+                $return_message = "";
+                include('View/message.php');
+                break;
+            }
         case 'box_finish': {
                 // Xóa dữ liệu giỏ hàng:
                 for ($i = 0; isset($_SESSION["product_code_$i"]); $i++) {
@@ -13,6 +18,9 @@ if (isset($_GET['control'])) {
                 }
                 if (isset($_SESSION["product_code"])) {
                     unset($_SESSION["product_code"]);
+                }
+                if (isset($_SESSION["count_in_box"])) {
+                    $count_in_box = $_SESSION['count_in_box'];
                 }
                 include('Model/get_product_data.php');
                 include('View/home_page.php');
@@ -30,12 +38,27 @@ if (isset($_GET['control'])) {
                 }
             }
         case 'new_product_list': {
+                if (isset($_SESSION["count_in_box"])) {
+                    $count_in_box = $_SESSION['count_in_box'];
+                }
                 include('Model/get_product_data.php');
                 include('Model/product/product_new.php');
                 include('View/product/product_new.php');
                 break;
             }
+        case 'search_product_list': {
+                if (isset($_SESSION["count_in_box"])) {
+                    $count_in_box = $_SESSION['count_in_box'];
+                }
+                include('Model/get_product_data.php');
+                include('Model/product/product_search.php');
+                include('View/product/product_search.php');
+                break;
+            }
         case 'hot_product_list': {
+                if (isset($_SESSION["count_in_box"])) {
+                    $count_in_box = $_SESSION['count_in_box'];
+                }
                 include('Model/get_product_data.php');
                 include('Model/product/product_hot.php');
                 include('View/product/product_hot.php');
@@ -83,6 +106,11 @@ if (isset($_GET['control'])) {
 if (isset($_POST['control'])) {
     $control = $_POST['control'];
     switch ($control) {
+        case "save_message":{
+            include('Model/message.php');
+            include('View/message.php');
+            break;
+        }
         case "box_finish": {
                 include('Model/box/box_finish.php');
                 include('View/box/box_finish.php');

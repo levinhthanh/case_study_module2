@@ -29,13 +29,16 @@
 }
 .drop_product_list{
     display: none;
-    width: 11vw;
+    width: 32vw;
     height: 10vw;
     background-color: #303032;
     top: 3vw;
     left: 1vw;
     position: absolute;
     overflow: auto;
+}
+#watch_line_drop{
+    width: 10vw;
 }
 .product_list:hover .drop_product_list{
     display: block;

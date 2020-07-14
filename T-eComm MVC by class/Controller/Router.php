@@ -28,6 +28,9 @@ if (!isset($_GET['router']) && !isset($_POST['router'])) {
                                 $_SESSION['hiUser'] = $hiUser;
                                 $log_in = "none;";
                                 $log_out = "block;";
+                                if(isset($_SESSION["count_in_box"])) {
+                                    $count_in_box = $_SESSION['count_in_box'];
+                                }
                                 include('Model/get_product_data.php');
                                 include('View/home_page.php');
                                 break;
@@ -64,6 +67,9 @@ if (!isset($_GET['router']) && !isset($_POST['router'])) {
                             $employee_fullname = $_SESSION['employee_fullname'];
                             include('View/employee/employee.php');
                         } else {
+                            if(isset($_SESSION["count_in_box"])) {
+                                $count_in_box = $_SESSION['count_in_box'];
+                            }
                             include('Model/get_product_data.php');
                             include('View/home_page.php');
                         }
@@ -72,6 +78,9 @@ if (!isset($_GET['router']) && !isset($_POST['router'])) {
             }
             // Vào web lần đầu:
             else {
+                if(isset($_SESSION["count_in_box"])) {
+                    $count_in_box = $_SESSION['count_in_box'];
+                }
                 include('Model/get_product_data.php');
                 include('View/home_page.php');
             }

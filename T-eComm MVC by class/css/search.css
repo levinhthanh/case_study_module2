@@ -30,8 +30,8 @@
 }
 #show{
     padding-top: 0.5%;
-    padding-left: 0.5%;
-    width: 12%;
+    padding-left: 3%;
+    width: 8%;
 
 }
 #inputProduct{
@@ -118,4 +118,26 @@ a{
     color: #3B170B;
     font-size: 1.1vw;
 }
-/* } */
+#count_in_box{
+    position: absolute;
+    color: darkred;
+    background-color: darkorange;
+    top: -0.5vw;
+    right: 2vw;
+    border: solid darkgray 0.05vw;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 1vw;
+}
+
+.drop_search_list{
+    display: none;
+    width: 11vw;
+    height: 10vw;
+    background-color: #303032;
+    top: 3vw;
+    left: 1vw;
+    position: absolute;
+    overflow: auto;
+    z-index: 1;
+}

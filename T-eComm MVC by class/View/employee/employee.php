@@ -36,8 +36,8 @@
                         <i class="fas fa-angle-down"></i>
                         <div class="dropdown-content">
                             <a id="a_select" href="index.php?router=employee&control=show_bill_list">Danh sách đơn hàng</a>
-                            <a id="a_select" href="index.php?router=admin&control=show_product_list">Danh sách sản phẩm</a>
-                            <a id="a_select" href="index.php?router=admin&control=show_customer_list">Danh sách khách hàng</a>
+                            <a id="a_select" href="index.php?router=employee&control=show_product_list">Danh sách sản phẩm</a>
+                            <a id="a_select" href="index.php?router=employee&control=show_customer_list">Danh sách khách hàng</a>
                         </div>
                     </div>
                 </div>
@@ -69,72 +69,22 @@
             <!-- *
             *
             * -->
-            <!------------------------- NỘI DUNG TRANG ADMIN --------------------------- -------------------------- -->
+            <!------------------------- NỘI DUNG TRANG NHÂN VIÊN --------------------------- -------------------------- -->
             <!-- *
             *
             * -->
             <div class="show_content">
 
-                <!-- DANH SÁCH NHÂN VIÊN -->
-                <div class="list_employee" style="display: <?= $display_list_employee ?>;">
-                    <label id="label_manager_employee">Danh sách nhân viên</label><br>
-                    <div class="tools_employee">
-                        <a id="a_manager_employee" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_employee" href="index.php?router=admin&control=add_employee">Add</a>
-                    </div>
-                    <table id="table_list_employee">
-                        <tr>
-                            <th id="th_list_employee">Mã nhân viên</th>
-                            <th id="th_list_employee">Tên</th>
-                            <th id="th_list_employee">Ngày sinh</th>
-                            <th id="th_list_employee">Địa chỉ</th>
-                            <th id="th_list_employee">Số điện thoại</th>
-                            <th id="th_list_employee">Email</th>
-                            <th id="th_list_employee">Chức vụ</th>
-                            <th id="th_list_employee">Lương</th>
-                            <th id="th_list_employee">Ngày gia nhập</th>
-                            <th id="th_list_employee">Tài khoản</th>
-                            <th id="th_list_employee">Sửa/Xóa</th>
-                        </tr>
-                        <?= $table_list_employee ?>
-                    </table>
-                    <label id="lable_delete_employee"><?= $delete_employee ?></label>
-                    <div class="btn_delete">
-                        <form action="index.php" method="post">
-                            <input type="hidden" name="router" value="admin">
-                            <input type="hidden" name="control" value="require_delete_employee">
-                            <input type="hidden" name="code" value="<?= $code_emp ?>">
-                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_delete ?>;">
-                        </form>
-                        <form action="index.php" method="get">
-                            <input type="hidden" name="router" value="admin">
-                            <input type="hidden" name="control" value="show_employee_list">
-                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_delete ?>;">
-                        </form>
-                    </div>
-                </div>
+                <!-- DANH SÁCH ĐƠN HÀNG -->
+              
 
                 <!-- DANH SÁCH SẢN PHẨM -->
                 <div class="list_product" style="display: <?= $display_list_product ?>;">
                     <label id="label_manager_product">Danh sách sản phẩm</label><br>
                     <div class="tools_product">
-                        <a id="a_manager_product" href="index.php?router=admin">Home</a>|
-                        <a id="a_manager_product" href="index.php?router=admin&control=add_product">Add</a>
+                        <a id="a_manager_product" href="index.php?router=employee">Home</a>
                     </div>
-                    <label id="lable_delete_product"><?= $delete_product ?></label>
-                    <div class="btn_delete">
-                        <form action="index.php" method="post">
-                            <input type="hidden" name="router" value="admin">
-                            <input type="hidden" name="control" value="require_delete_product">
-                            <input type="hidden" name="code" value="<?= $code_prod ?>">
-                            <input id="confirm_delete" type="submit" value="Xác nhận" style="display: <?= $btn_delete ?>;">
-                        </form>
-                        <form action="index.php" method="get">
-                            <input type="hidden" name="router" value="admin">
-                            <input type="hidden" name="control" value="show_product_list">
-                            <input id="cancel_delete" type="submit" value="Hủy bỏ" style="display: <?= $btn_delete ?>;">
-                        </form>
-                    </div>
+            
                     <table id="table_list_product">
                         <tr>
                             <th id="th_list_product">Mã sản phẩm</th>
@@ -147,7 +97,6 @@
                             <th id="th_list_product">Nhà kho</th>
                             <th id="th_list_product">Số lượng</th>
                             <th id="th_list_product">Ngày nhập kho</th>
-                            <th id="th_list_product">Sửa/Xóa</th>
                         </tr>
 
                         <?= $table_list_product ?>

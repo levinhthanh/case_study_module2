@@ -86,7 +86,7 @@
     height: 34vw;
   }
   .product_show:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
   #image_product_show{
       width: 20vw;
@@ -143,4 +143,7 @@
 .button_click_slide_left:focus,
 .button_click_slide_right:focus{
      outline: none;
+}
+#label_search{
+    color: darkturquoise;
 }

@@ -12,4 +12,7 @@ if (isset($_POST['payment_way'])) {
     if (isset($_SESSION["product_code"])) {
         unset($_SESSION["product_code"]);
     }
+    if (isset($_SESSION["count_in_box"])) {
+        $_SESSION["count_in_box"] = 0;
+    }
 }
